@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" href="task3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- header start -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+
+                <div class="logo" onclick="showPage('home')" style="cursor: pointer;">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <span class="logo-text">Brand</span>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search" id="searchInput" autocomplete="off">
+                    <div class="category-dropdown">
+                        <span>All category</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <button class="search-btn" onclick="showPage('products')">Search</button>
+
+                    <!-- search suggestions dropdown (Week 3 interactivity) -->
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <h6>Popular searches</h6>
+                        <div class="search-suggestion"><i class="fa-solid fa-magnifying-glass"></i> GoPro Hero camera</div>
+                        <div class="search-suggestion"><i class="fa-solid fa-magnifying-glass"></i> Smart watches</div>
+                        <div class="search-suggestion"><i class="fa-solid fa-magnifying-glass"></i> Headphones wireless</div>
+                        <div class="search-suggestion"><i class="fa-solid fa-magnifying-glass"></i> Mens t-shirts</div>
+                        <div class="search-suggestion"><i class="fa-solid fa-magnifying-glass"></i> Laptops gaming</div>
+                    </div>
+                </div>
+
+                <div class="header-icons">
+                    <div class="header-icon">
+                        <i class="fa-regular fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="header-icon">
+                        <i class="fa-regular fa-comment"></i>
+                        <span>Message</span>
+                    </div>
+                    <div class="header-icon">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Orders</span>
+                    </div>
+                    <div class="header-icon" onclick="showPage('cart')" style="cursor: pointer;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>My cart</span>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <nav class="header-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li class="nav-item" data-nav="home" onclick="showPage('home')">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>All category</span>
+                    </li>
+                    <li class="nav-item" data-nav="home" onclick="showPage('home')">Home</li>
+                    <li class="nav-item" data-nav="products" onclick="showPage('products')">Products</li>
+                    <li class="nav-item" data-nav="cart" onclick="showPage('cart')">Cart</li>
+                    <li class="nav-item" data-nav="about" onclick="showPage('about')">About</li>
+                    <li class="nav-item" data-nav="contact" onclick="showPage('contact')">Contact</li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="nav-item">
+                        <span>English, USD</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="nav-item">
+                        <span>Ship to</span>
+                        <span class="flag">🇩🇪</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- header end -->
+
+
+    <!-- ====================================================
+         HOME PAGE
+         ==================================================== -->
+    <div id="home-page" class="page active">
+
+        <main class="home-main">
+            <div class="container">
+
+                <!-- hero section -->
+                <section class="section-card hero-section">
+                    <aside class="hero-sidebar">
+                        <ul>
+                            <li class="active" onclick="filterCategory('Automobiles')">Automobiles</li>
+                            <li onclick="filterCategory('Clothes and wear')">Clothes and wear</li>
+                            <li onclick="filterCategory('Home interiors')">Home interiors</li>
+                            <li onclick="filterCategory('Computer and tech')">Computer and tech</li>
+                            <li onclick="filterCategory('Tools, equipments')">Tools, equipments</li>
+                            <li onclick="filterCategory('Sports and outdoor')">Sports and outdoor</li>
+                            <li onclick="filterCategory('Animal and pets')">Animal and pets</li>
+                            <li onclick="filterCategory('Machinery tools')">Machinery tools</li>
+                            <li onclick="filterCategory('More category')">More category</li>
+                        </ul>
+                    </aside>
+
+                    <div class="hero-banner">
+                        <h3>Latest trending</h3>
+                        <h2>Electronic items</h2>
+                        <button class="learn-more-btn" onclick="showPage('products')">Learn more</button>
+                    </div>
+
+                    <div class="hero-cards">
+                        <div class="user-card">
+                            <div class="user-info">
+                                <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                                <p>Hi, user<br><span style="color: #606060;">let's get stated</span></p>
+                            </div>
+                            <div class="user-card-btns">
+                                <button class="btn-primary">Join now</button>
+                                <button class="btn-secondary">Log in</button>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            Get US $10 off<br>with a new<br>supplier
+                        </div>
+
+                        <div class="quotes-card">
+                            Send quotes with<br>supplier preferences
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- deals and offers -->
+                <section class="section-card deals-section">
+                    <div class="deals-info">
+                        <h3>Deals and offers</h3>
+                        <p>Hygiene equipments</p>
+                        <div class="countdown">
+                            <div class="timer-box">
+                                <span class="num">04</span>
+                                <span class="label">Days</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="num">13</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="num">34</span>
+                                <span class="label">Min</span>
+                            </div>
+                            <div class="timer-box">
+                                <span class="num">56</span>
+                                <span class="label">Sec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deals-products">
+                        <div class="deal-card" onclick="openProductDetail('p3')">
+                            <div class="deal-img">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop" alt="Smart watches">
+                            </div>
+                            <h4>Smart watches</h4>
+                            <span class="discount-badge">-25%</span>
+                        </div>
+                        <div class="deal-card" onclick="openProductDetail('p5')">
+                            <div class="deal-img">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&h=200&fit=crop" alt="Laptops">
+                            </div>
+                            <h4>Laptops</h4>
+                            <span class="discount-badge">-15%</span>
+                        </div>
+                        <div class="deal-card" onclick="openProductDetail('p2')">
+                            <div class="deal-img">
+                                <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=200&fit=crop" alt="GoPro cameras">
+                            </div>
+                            <h4>GoPro cameras</h4>
+                            <span class="discount-badge">-40%</span>
+                        </div>
+                        <div class="deal-card" onclick="openProductDetail('p4')">
+                            <div class="deal-img">
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop" alt="Headphones">
+                            </div>
+                            <h4>Headphones</h4>
+                            <span class="discount-badge">-25%</span>
+                        </div>
+                        <div class="deal-card" onclick="openProductDetail('p1')">
+                            <div class="deal-img">
+                                <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=200&h=200&fit=crop" alt="Canon cameras">
+                            </div>
+                            <h4>Canon cameras</h4>
+                            <span class="discount-badge">-25%</span>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- home and outdoor -->
+                <section class="section-card products-section">
+                    <div class="promo-box promo-home">
+                        <h3>Home and<br>outdoor</h3>
+                        <button class="source-btn" onclick="showPage('products')">Source now</button>
+                    </div>
+
+                    <div class="products-grid">
+                        <div class="product-mini" onclick="openProductDetail('p8')">
+                            <div>
+                                <h4>Soft chairs</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=200&h=200&fit=crop" alt="Soft chairs">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p8')">
+                            <div>
+                                <h4>Sofa & chair</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop" alt="Sofa">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p9')">
+                            <div>
+                                <h4>Kitchen dishes</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1584990347449-a8d3e8f4f5ce?w=200&h=200&fit=crop" alt="Kitchen">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p9')">
+                            <div>
+                                <h4>Smart watches</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1610824352934-c10d87b700cc?w=200&h=200&fit=crop" alt="Pot">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p9')">
+                            <div>
+                                <h4>Kitchen mixer</h4>
+                                <p class="price-from">From<br><strong>USD 100</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=200&h=200&fit=crop" alt="Mixer">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p9')">
+                            <div>
+                                <h4>Blenders</h4>
+                                <p class="price-from">From<br><strong>USD 39</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=200&h=200&fit=crop" alt="Blender">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p8')">
+                            <div>
+                                <h4>Home appliance</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop" alt="Appliance">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p10')">
+                            <div>
+                                <h4>Coffee maker</h4>
+                                <p class="price-from">From<br><strong>USD 10</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop" alt="Coffee">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- consumer electronics -->
+                <section class="section-card products-section">
+                    <div class="promo-box promo-electronics">
+                        <h3>Consumer<br>electronics and<br>gadgets</h3>
+                        <button class="source-btn" onclick="showPage('products')">Source now</button>
+                    </div>
+
+                    <div class="products-grid">
+                        <div class="product-mini" onclick="openProductDetail('p3')">
+                            <div>
+                                <h4>Smart watches</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop" alt="Watch">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p1')">
+                            <div>
+                                <h4>Cameras</h4>
+                                <p class="price-from">From<br><strong>USD 89</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=200&fit=crop" alt="Camera">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p4')">
+                            <div>
+                                <h4>Headphones</h4>
+                                <p class="price-from">From<br><strong>USD 10</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Headphones">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p3')">
+                            <div>
+                                <h4>Smart watches</h4>
+                                <p class="price-from">From<br><strong>USD 90</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop" alt="Kettle">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p4')">
+                            <div>
+                                <h4>Gaming set</h4>
+                                <p class="price-from">From<br><strong>USD 35</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=200&h=200&fit=crop" alt="Gaming">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p5')">
+                            <div>
+                                <h4>Laptops & PC</h4>
+                                <p class="price-from">From<br><strong>USD 340</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&h=200&fit=crop" alt="Laptop">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p6')">
+                            <div>
+                                <h4>Smartphones</h4>
+                                <p class="price-from">From<br><strong>USD 19</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop" alt="Phone">
+                            </div>
+                        </div>
+                        <div class="product-mini" onclick="openProductDetail('p10')">
+                            <div>
+                                <h4>Electric kettle</h4>
+                                <p class="price-from">From<br><strong>USD 240</strong></p>
+                            </div>
+                            <div class="product-mini-img">
+                                <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=200&h=200&fit=crop" alt="Kettle">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- inquiry banner -->
+                <section class="inquiry-section">
+                    <div class="inquiry-text">
+                        <h2>An easy way to send<br>requests to all suppliers</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                    <div class="inquiry-form">
+                        <h3>Send quote to suppliers</h3>
+                        <input type="text" placeholder="What item you need?">
+                        <textarea placeholder="Type more details"></textarea>
+                        <div class="inquiry-row">
+                            <input type="number" placeholder="Quantity">
+                            <select>
+                                <option>Pcs</option>
+                                <option>Kg</option>
+                                <option>Box</option>
+                            </select>
+                        </div>
+                        <button class="send-inquiry-btn" onclick="showPage('contact')">Send inquiry</button>
+                    </div>
+                </section>
+
+
+                <!-- recommended items -->
+                <section class="recommended-section">
+                    <h2 class="section-title">Recommended items</h2>
+                    <div class="recommended-grid">
+                        <div class="rec-card" onclick="openProductDetail('p7')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop" alt="T-shirt">
+                            </div>
+                            <div class="rec-price">$10.30</div>
+                            <div class="rec-name">T-shirts with multiple<br>colors, for men</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p7')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop" alt="Jeans">
+                            </div>
+                            <div class="rec-price">$10.30</div>
+                            <div class="rec-name">Jeans shorts for men<br>blue color</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p7')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=300&fit=crop" alt="Coat">
+                            </div>
+                            <div class="rec-price">$12.50</div>
+                            <div class="rec-name">Brown winter coat<br>medium size</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p4')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="Wallet">
+                            </div>
+                            <div class="rec-price">$34.00</div>
+                            <div class="rec-name">Jeans bag for travel<br>for men</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p7')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300&h=300&fit=crop" alt="Backpack">
+                            </div>
+                            <div class="rec-price">$99.00</div>
+                            <div class="rec-name">Leather wallet</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p1')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=300&fit=crop" alt="Shorts">
+                            </div>
+                            <div class="rec-price">$9.99</div>
+                            <div class="rec-name">Canon camera<br>black, 100x zoom</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p4')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Headphones">
+                            </div>
+                            <div class="rec-price">$8.99</div>
+                            <div class="rec-name">Headset for gaming<br>with mic</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p3')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300&h=300&fit=crop" alt="Smartwatch">
+                            </div>
+                            <div class="rec-price">$10.30</div>
+                            <div class="rec-name">Smartwatch<br>silver color modern</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p7')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1610824352934-c10d87b700cc?w=300&h=300&fit=crop" alt="Wallet">
+                            </div>
+                            <div class="rec-price">$10.30</div>
+                            <div class="rec-name">Blue wallet for men<br>leather metarfial</div>
+                        </div>
+                        <div class="rec-card" onclick="openProductDetail('p4')">
+                            <div class="rec-img">
+                                <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=300&h=300&fit=crop" alt="Kettle">
+                            </div>
+                            <div class="rec-price">$80.95</div>
+                            <div class="rec-name">Jeans bag for travel<br>for men</div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- extra services -->
+                <section class="services-section">
+                    <h2 class="section-title">Our extra services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-img service-img-1">
+                                <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            </div>
+                            <h4>Source from<br>Industry Hubs</h4>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-img service-img-2">
+                                <div class="service-icon"><i class="fa-solid fa-box"></i></div>
+                            </div>
+                            <h4>Customize Your<br>Products</h4>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-img service-img-3">
+                                <div class="service-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                            </div>
+                            <h4>Fast, reliable shipping<br>by ocean or air</h4>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-img service-img-4">
+                                <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            </div>
+                            <h4>Product monitoring<br>and inspection</h4>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- suppliers by region -->
+                <section class="suppliers-section">
+                    <h2 class="section-title">Suppliers by region</h2>
+                    <div class="suppliers-grid">
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇦🇪</span>
+                            <div class="supplier-info">
+                                <h5>Arabic Emirates</h5>
+                                <p>shopname.ae</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇦🇺</span>
+                            <div class="supplier-info">
+                                <h5>Australia</h5>
+                                <p>shopname.ae</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇺🇸</span>
+                            <div class="supplier-info">
+                                <h5>United States</h5>
+                                <p>shopname.ae</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇷🇺</span>
+                            <div class="supplier-info">
+                                <h5>Russia</h5>
+                                <p>shopname.ru</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇮🇹</span>
+                            <div class="supplier-info">
+                                <h5>Italy</h5>
+                                <p>shopname.it</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇩🇰</span>
+                            <div class="supplier-info">
+                                <h5>Denmark</h5>
+                                <p>denmark.com.dk</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇫🇷</span>
+                            <div class="supplier-info">
+                                <h5>France</h5>
+                                <p>shopname.com.fr</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇦🇪</span>
+                            <div class="supplier-info">
+                                <h5>Arabic Emirates</h5>
+                                <p>shopname.ae</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇨🇳</span>
+                            <div class="supplier-info">
+                                <h5>China</h5>
+                                <p>shopname.ae</p>
+                            </div>
+                        </div>
+                        <div class="supplier-item">
+                            <span class="supplier-flag">🇬🇧</span>
+                            <div class="supplier-info">
+                                <h5>Great Britain</h5>
+                                <p>shopname.co.uk</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- ====================================================
+         PRODUCT LISTING PAGE
+         ==================================================== -->
+    <div id="products-page" class="page">
+
+        <main class="products-main">
+            <div class="container">
+
+                <!-- breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="#" onclick="showPage('home'); return false;">Home</a>
+                    <span class="separator">›</span>
+                    <a href="#">Clothings</a>
+                    <span class="separator">›</span>
+                    <a href="#">Men's wear</a>
+                    <span class="separator">›</span>
+                    <a href="#" id="breadcrumbCategory">Summer clothing</a>
+                </div>
+
+                <div class="products-layout">
+
+                    <!-- filter sidebar -->
+                    <aside class="filter-sidebar">
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Category</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <ul class="filter-list">
+                                <li onclick="filterCategory('Mobile accessory')">Mobile accessory</li>
+                                <li onclick="filterCategory('Electronics')">Electronics</li>
+                                <li onclick="filterCategory('Smartphones')">Smartphones</li>
+                                <li onclick="filterCategory('Modern tech')">Modern tech</li>
+                            </ul>
+                            <span class="see-all">See all</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Brands</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <label class="filter-checkbox"><input type="checkbox"> Samsung</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Apple</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Huawei</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Pocco</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Lenovo</label>
+                            <span class="see-all">See all</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Features</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <label class="filter-checkbox"><input type="checkbox"> Metallic</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Plastic cover</label>
+                            <label class="filter-checkbox"><input type="checkbox"> 8GB Ram</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Super power</label>
+                            <label class="filter-checkbox"><input type="checkbox"> Large Memory</label>
+                            <span class="see-all">See all</span>
+                        </div>
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Price range</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <div class="price-range">
+                                <input type="range" class="price-slider" min="0" max="999999" value="500000">
+                                <div class="price-inputs">
+                                    <div class="price-input-box">
+                                        <label>Min</label>
+                                        <input type="number" value="0">
+                                    </div>
+                                    <div class="price-input-box">
+                                        <label>Max</label>
+                                        <input type="number" value="999999">
+                                    </div>
+                                </div>
+                                <button class="apply-btn">Apply</button>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Condition</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <label class="filter-radio"><input type="radio" name="condition" checked> Any</label>
+                            <label class="filter-radio"><input type="radio" name="condition"> Refurbished</label>
+                            <label class="filter-radio"><input type="radio" name="condition"> Brand new</label>
+                            <label class="filter-radio"><input type="radio" name="condition"> Old items</label>
+                        </div>
+
+                        <div class="filter-group">
+                            <div class="filter-header">
+                                <h4>Ratings</h4>
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </div>
+                            <label class="rating-row">
+                                <input type="checkbox">
+                                <span class="rating-stars">★★★★★</span>
+                            </label>
+                            <label class="rating-row">
+                                <input type="checkbox">
+                                <span class="rating-stars">★★★★<span class="empty">★</span></span>
+                            </label>
+                            <label class="rating-row">
+                                <input type="checkbox">
+                                <span class="rating-stars">★★★<span class="empty">★★</span></span>
+                            </label>
+                            <label class="rating-row">
+                                <input type="checkbox">
+                                <span class="rating-stars">★★<span class="empty">★★★</span></span>
+                            </label>
+                        </div>
+
+                    </aside>
+
+
+                    <!-- products grid -->
+                    <div class="products-content grid-view">
+
+                        <!-- toolbar -->
+                        <div class="products-toolbar">
+                            <div class="toolbar-left">
+                                <strong>12,911 items</strong> in <span id="categoryTitle">Mobile accessory</span>
+                            </div>
+                            <div class="toolbar-right">
+                                <label class="verified-toggle">
+                                    <input type="checkbox" checked> Verified only
+                                </label>
+                                <select class="featured-select">
+                                    <option>Featured</option>
+                                    <option>Newest</option>
+                                    <option>Price: Low to High</option>
+                                    <option>Price: High to Low</option>
+                                </select>
+                                <div class="view-toggle">
+                                    <button class="active" onclick="setView('grid', this)"><i class="fa-solid fa-th-large"></i></button>
+                                    <button onclick="setView('list', this)"><i class="fa-solid fa-list"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- product cards wrapper -->
+                        <div class="product-grid-wrap">
+
+                        <!-- product 1 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop" alt="Canon Camera">
+                            </div>
+                            <div class="product-info">
+                                <h3>Canon Cmera EOS 2000, Black 10x zoom</h3>
+                                <div class="product-price">
+                                    $998.00
+                                    <span class="old-price">$1128.00</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p1')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p1')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        <!-- product 2 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" alt="GoPro">
+                            </div>
+                            <div class="product-info">
+                                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                                <div class="product-price">$998.00</div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p2')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p2')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        <!-- product 3 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop" alt="Smartphone">
+                            </div>
+                            <div class="product-info">
+                                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                                <div class="product-price">$998.00</div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p3')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p3')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        <!-- product 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop" alt="Laptop">
+                            </div>
+                            <div class="product-info">
+                                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                                <div class="product-price">$998.00</div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p4')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p4')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        <!-- product 5 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop" alt="Watch">
+                            </div>
+                            <div class="product-info">
+                                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                                <div class="product-price">
+                                    $998.00
+                                    <span class="old-price">$1128.00</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p5')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p5')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        <!-- product 6 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Headphones">
+                            </div>
+                            <div class="product-info">
+                                <h3>GoPro HERO6 4K Action Camera - Black</h3>
+                                <div class="product-price">$998.00</div>
+                                <div class="product-meta">
+                                    <span class="product-rating">
+                                        ★★★★<span style="color: #d9d9d9;">★</span>
+                                        <span class="rating-num">7.5</span>
+                                    </span>
+                                    <span class="orders-count">• 154 orders</span>
+                                    <span class="free-shipping">• Free Shipping</span>
+                                </div>
+                                <p class="product-desc">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                </p>
+                                <div class="product-actions">
+                                    <span class="view-details" onclick="openProductDetail('p6')">View details</span>
+                                    <button class="buy-now-btn" onclick="openProductDetail('p6')">Buy Now</button>
+                                </div>
+                            </div>
+                            <button class="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+
+                        </div>
+                        <!-- end product-grid-wrap -->
+
+                        <!-- pagination -->
+                        <div class="pagination">
+                            <div class="show-select">
+                                <span>Show</span>
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+                            <div class="page-numbers">
+                                <button><i class="fa-solid fa-chevron-left"></i></button>
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- ====================================================
+         PRODUCT DETAIL PAGE
+         ==================================================== -->
+    <div id="detail-page" class="page">
+
+        <main class="detail-main">
+            <div class="container">
+
+                <!-- breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="#" onclick="showPage('home'); return false;">Home</a>
+                    <span class="separator">›</span>
+                    <a href="#">Clothings</a>
+                    <span class="separator">›</span>
+                    <a href="#">Men's wear</a>
+                    <span class="separator">›</span>
+                    <a href="#">Summer clothing</a>
+                </div>
+
+
+                <!-- detail top section -->
+                <div class="detail-card">
+                    <div class="detail-top">
+
+                        <!-- left: images -->
+                        <div class="detail-images">
+                            <div class="main-img">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" alt="Product image" id="mainProductImg">
+                            </div>
+                            <div class="thumbnail-row" id="thumbnailRow">
+                                <div class="thumbnail active">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=120&h=120&fit=crop" alt="thumb 1">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=120&h=120&fit=crop" alt="thumb 2">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=120&h=120&fit=crop" alt="thumb 3">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=120&h=120&fit=crop" alt="thumb 4">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1520975954732-35dd22299614?w=120&h=120&fit=crop" alt="thumb 5">
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=120&h=120&fit=crop" alt="thumb 6">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- center: info -->
+                        <div class="detail-info">
+                            <div class="stock-badge">
+                                <i class="fa-solid fa-circle-check"></i> In stock
+                            </div>
+                            <h1 id="detailTitle">Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+
+                            <div class="detail-meta">
+                                <span class="product-rating">
+                                    ★★★★<span style="color: #d9d9d9;">★</span>
+                                    <span class="rating-num" id="detailRating">9.3</span>
+                                </span>
+                                <span class="review-count" id="detailReviewCount">• 32 reviews</span>
+                                <span class="sold-count"><i class="fa-solid fa-bag-shopping"></i> <span id="detailSold">154</span> sold</span>
+                            </div>
+
+                            <div class="price-tiers">
+                                <div class="price-tier">
+                                    <div class="tier-price" id="detailPrice">$98.00</div>
+                                    <div class="tier-qty">50-100 pcs</div>
+                                </div>
+                                <div class="price-tier">
+                                    <div class="tier-price" id="detailPrice2">$90.00</div>
+                                    <div class="tier-qty">100-700 pcs</div>
+                                </div>
+                                <div class="price-tier">
+                                    <div class="tier-price" id="detailPrice3">$78.00</div>
+                                    <div class="tier-qty">700+ pcs</div>
+                                </div>
+                            </div>
+
+                            <table class="detail-table">
+                                <tr>
+                                    <td>Price:</td>
+                                    <td>Negotiable</td>
+                                </tr>
+                                <tr><td colspan="2" style="padding: 4px 0;"></td></tr>
+                                <tr>
+                                    <td>Type:</td>
+                                    <td id="productType">Classic shoes</td>
+                                </tr>
+                                <tr>
+                                    <td>Material:</td>
+                                    <td id="productMaterial">Plastic material</td>
+                                </tr>
+                                <tr>
+                                    <td>Design:</td>
+                                    <td id="productDesign">Modern nice</td>
+                                </tr>
+                                <tr><td colspan="2" style="padding: 4px 0;"></td></tr>
+                                <tr>
+                                    <td>Customization:</td>
+                                    <td>Customized logo and<br>design custom packages</td>
+                                </tr>
+                                <tr>
+                                    <td>Protection:</td>
+                                    <td>Refund Policy</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty:</td>
+                                    <td>2 years full warranty</td>
+                                </tr>
+                            </table>
+
+                            <!-- Week 3: Size dropdown -->
+                            <div class="size-section">
+                                <label for="sizeSelect">Select size:</label>
+                                <select class="size-dropdown" id="sizeSelect">
+                                    <option value="S">Small (S)</option>
+                                    <option value="M" selected>Medium (M)</option>
+                                    <option value="L">Large (L)</option>
+                                    <option value="XL">Extra Large (XL)</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+
+                            <!-- Week 3: Quantity + Add to Cart -->
+                            <div class="cart-actions">
+                                <div class="qty-selector">
+                                    <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                                    <input type="number" class="qty-input" id="qtyInput" value="1" min="1">
+                                    <button class="qty-btn" onclick="changeQty(1)">+</button>
+                                </div>
+                                <button class="add-cart-btn" onclick="addToCart()">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- right: supplier card -->
+                        <div>
+                            <div class="supplier-card">
+                                <div class="supplier-top">
+                                    <div class="supplier-logo">R</div>
+                                    <div>
+                                        <h4>Supplier</h4>
+                                        <h3 id="supplierName">Guanjoi Trading LLC</h3>
+                                    </div>
+                                </div>
+                                <div class="supplier-meta">
+                                    <div class="meta-row">
+                                        <span class="flag">🇩🇪</span>
+                                        <span>Germany, Berlin</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>Verified Seller</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <i class="fa-solid fa-globe"></i>
+                                        <span>Worldwide shipping</span>
+                                    </div>
+                                </div>
+                                <button class="send-inquiry-large" onclick="showPage('contact')">Send inquiry</button>
+                                <button class="seller-profile-btn" onclick="showPage('about')">Seller's profile</button>
+                            </div>
+                            <div class="save-later">
+                                <i class="fa-regular fa-heart"></i> Save for later
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- description + you may like -->
+                <div class="description-card">
+                    <div class="description-content">
+                        <div class="tab-row">
+                            <div class="tab-item active" data-tab="description">Description</div>
+                            <div class="tab-item" data-tab="reviews">Reviews</div>
+                            <div class="tab-item" data-tab="shipping">Shipping</div>
+                            <div class="tab-item" data-tab="seller">About seller</div>
+                        </div>
+
+                        <!-- Description tab -->
+                        <div class="description-text" id="tab-description">
+                            <p id="productDescription">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Model</td>
+                                    <td>#8786867</td>
+                                </tr>
+                                <tr>
+                                    <td>Style</td>
+                                    <td>Classic style</td>
+                                </tr>
+                                <tr>
+                                    <td>Certificate</td>
+                                    <td>ISO-898921212</td>
+                                </tr>
+                                <tr>
+                                    <td>Size</td>
+                                    <td>34mm x 450mm x 19mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Memory</td>
+                                    <td>36GB RAM</td>
+                                </tr>
+                            </table>
+
+                            <ul class="feature-list">
+                                <li><i class="fa-solid fa-check"></i> Some great feature name here</li>
+                                <li><i class="fa-solid fa-check"></i> Lorem ipsum dolor sit amet, consectetur</li>
+                                <li><i class="fa-solid fa-check"></i> Duis aute irure dolor in reprehenderit</li>
+                                <li><i class="fa-solid fa-check"></i> Some great feature name here</li>
+                            </ul>
+                        </div>
+
+                        <!-- Week 3: Reviews tab -->
+                        <div class="reviews-content" id="tab-reviews">
+                            <div class="review-summary">
+                                <div class="review-score">
+                                    <div class="big-score">9.3</div>
+                                    <div class="stars-row">★★★★<span style="color: #d9d9d9;">★</span></div>
+                                    <p>Based on 32 reviews</p>
+                                </div>
+                                <div class="review-bars">
+                                    <div class="bar-row">
+                                        <span class="star-label">5 star</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
+                                        <span class="bar-count">24</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="star-label">4 star</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
+                                        <span class="bar-count">5</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="star-label">3 star</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+                                        <span class="bar-count">2</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="star-label">2 star</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 5%;"></div></div>
+                                        <span class="bar-count">1</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="star-label">1 star</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                                        <span class="bar-count">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-list">
+                                <div class="review-item">
+                                    <div class="review-head">
+                                        <div class="reviewer-avatar">AK</div>
+                                        <div class="reviewer-info">
+                                            <h5>Ahmad Khan</h5>
+                                            <p>March 12, 2024</p>
+                                        </div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                    <p class="review-text">Excellent quality! The fabric feels premium and the fit is perfect. Highly recommend for anyone looking for a comfortable long-sleeve t-shirt. Delivery was also super fast.</p>
+                                </div>
+
+                                <div class="review-item">
+                                    <div class="review-head">
+                                        <div class="reviewer-avatar" style="background-color: #f38332;">SM</div>
+                                        <div class="reviewer-info">
+                                            <h5>Sara Malik</h5>
+                                            <p>February 28, 2024</p>
+                                        </div>
+                                        <div class="review-rating">★★★★<span class="empty">★</span></div>
+                                    </div>
+                                    <p class="review-text">Good product overall. The material is comfortable and stitching is well done. Color was slightly different from the picture but acceptable.</p>
+                                </div>
+
+                                <div class="review-item">
+                                    <div class="review-head">
+                                        <div class="reviewer-avatar" style="background-color: #55bdc3;">RJ</div>
+                                        <div class="reviewer-info">
+                                            <h5>Raza Javed</h5>
+                                            <p>February 15, 2024</p>
+                                        </div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                    <p class="review-text">Bought this for my husband and he loves it. The cotton material is breathable and the slim fit looks great. Will definitely order more colors.</p>
+                                </div>
+
+                                <div class="review-item">
+                                    <div class="review-head">
+                                        <div class="reviewer-avatar" style="background-color: #00b517;">FA</div>
+                                        <div class="reviewer-info">
+                                            <h5>Fatima Ahmed</h5>
+                                            <p>January 30, 2024</p>
+                                        </div>
+                                        <div class="review-rating">★★★<span class="empty">★★</span></div>
+                                    </div>
+                                    <p class="review-text">Decent shirt for the price. Sizing runs a bit small, so I would recommend ordering one size up. Otherwise good quality.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping tab -->
+                        <div class="reviews-content" id="tab-shipping">
+                            <p style="font-size: 14px; color: #606060; line-height: 1.7;">
+                                <strong>Shipping Information:</strong><br><br>
+                                • Worldwide shipping available<br>
+                                • Standard delivery: 7-15 business days<br>
+                                • Express delivery: 3-5 business days<br>
+                                • Free shipping on orders above $100<br>
+                                • Tracking number provided after dispatch<br><br>
+                                <strong>Return Policy:</strong> 30 days return policy with full refund on damaged or defective items.
+                            </p>
+                        </div>
+
+                        <!-- About seller tab -->
+                        <div class="reviews-content" id="tab-seller">
+                            <p style="font-size: 14px; color: #606060; line-height: 1.7;">
+                                <strong>Guanjoi Trading LLC</strong><br>
+                                Based in Berlin, Germany — Verified seller since 2018.<br><br>
+                                We specialize in premium quality clothing and accessories, sourcing materials from trusted manufacturers worldwide. Our commitment to quality and customer satisfaction has earned us a 9.3/10 rating from over 1000 buyers globally.<br><br>
+                                • Verified Seller ✓<br>
+                                • Worldwide shipping<br>
+                                • 6+ years on platform<br>
+                                • Refund policy supported
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="you-may-like">
+                        <h4>You may like</h4>
+                        <div class="may-like-item">
+                            <div class="may-like-img">
+                                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=120&h=120&fit=crop" alt="Blazer">
+                            </div>
+                            <div class="may-like-info">
+                                <h5>Men Blazers Sets<br>Elegant Formal</h5>
+                                <p>$7.00 - $99.50</p>
+                            </div>
+                        </div>
+                        <div class="may-like-item">
+                            <div class="may-like-img">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=120&h=120&fit=crop" alt="Polo">
+                            </div>
+                            <div class="may-like-info">
+                                <h5>Men Shirt Sleeve<br>Polo Contrast</h5>
+                                <p>$7.00 - $99.50</p>
+                            </div>
+                        </div>
+                        <div class="may-like-item">
+                            <div class="may-like-img">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=120&h=120&fit=crop" alt="Watch">
+                            </div>
+                            <div class="may-like-info">
+                                <h5>Apple Watch Series<br>Space Gray</h5>
+                                <p>$7.00 - $99.50</p>
+                            </div>
+                        </div>
+                        <div class="may-like-item">
+                            <div class="may-like-img">
+                                <img src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=120&h=120&fit=crop" alt="Socks">
+                            </div>
+                            <div class="may-like-info">
+                                <h5>Basketball Crew<br>Socks Long Stuff</h5>
+                                <p>$7.00 - $99.50</p>
+                            </div>
+                        </div>
+                        <div class="may-like-item">
+                            <div class="may-like-img">
+                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=120&h=120&fit=crop" alt="T-shirt">
+                            </div>
+                            <div class="may-like-info">
+                                <h5>New Summer Men's<br>castrol T-Shirts</h5>
+                                <p>$7.00 - $99.50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- related products -->
+                <div class="related-card">
+                    <h3>Related products</h3>
+                    <div class="related-grid">
+                        <div class="related-item" onclick="openProductDetail('p1')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop" alt="Wallet">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                        <div class="related-item" onclick="openProductDetail('p2')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop" alt="Watch">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                        <div class="related-item" onclick="openProductDetail('p3')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Headphones">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                        <div class="related-item" onclick="openProductDetail('p4')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&h=200&fit=crop" alt="Shorts">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                        <div class="related-item" onclick="openProductDetail('p5')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop" alt="Kettle">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                        <div class="related-item" onclick="openProductDetail('p6')">
+                            <div class="related-img">
+                                <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop" alt="Bags">
+                            </div>
+                            <h5>Xiaomi Redmi 8<br>Original</h5>
+                            <p>$32.00-$40.00</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- discount banner -->
+                <div class="discount-banner">
+                    <div>
+                        <h3>Super discount on more than 100 USD</h3>
+                        <p>Have you ever finally just write dummy info</p>
+                    </div>
+                    <button class="shop-now-btn" onclick="showPage('products')">Shop now</button>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- ====================================================
+         CART PAGE (Week 3)
+         ==================================================== -->
+    <div id="cart-page" class="page">
+
+        <main class="cart-main">
+            <div class="container">
+
+                <div class="cart-header">
+                    <h1>My cart (<span id="cartItemCount">0</span>)</h1>
+                </div>
+
+                <div class="cart-layout">
+
+                    <!-- left: cart items (dynamically populated) -->
+                    <div class="cart-items">
+                        <div id="cartItemsContainer">
+                            <!-- Cart items will be inserted here dynamically by JavaScript -->
+                        </div>
+
+                        <div id="emptyCartMessage" style="text-align: center; padding: 40px 20px; color: #8b96a5;">
+                            <i class="fa-solid fa-cart-shopping" style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;"></i>
+                            <h3 style="font-size: 18px; margin-bottom: 8px; color: #1c1c1c;">Your cart is empty</h3>
+                            <p style="margin-bottom: 16px;">Add some products to get started</p>
+                            <button class="back-shop-btn" onclick="backToShop()">
+                                <i class="fa-solid fa-arrow-left"></i> Continue shopping
+                            </button>
+                        </div>
+
+                        <div class="cart-bottom-row" id="cartBottomRow" style="display: none;">
+                            <button class="back-shop-btn" onclick="backToShop()">
+                                <i class="fa-solid fa-arrow-left"></i> Back to shop
+                            </button>
+                            <button class="remove-all" onclick="removeAllFromCart()">Remove all</button>
+                        </div>
+                    </div>
+
+
+                    <!-- right: summary -->
+                    <div class="cart-summary">
+
+                        <div class="coupon-card">
+                            <label>Have a coupon?</label>
+                            <div class="coupon-row">
+                                <input type="text" placeholder="Add coupon">
+                                <button class="coupon-apply-btn">Apply</button>
+                            </div>
+                        </div>
+
+                        <div class="summary-card">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="cartSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row discount">
+                                <span>Discount:</span>
+                                <span id="cartDiscount">- $0.00</span>
+                            </div>
+                            <div class="summary-row tax">
+                                <span>Tax:</span>
+                                <span id="cartTax">+ $0.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-total">
+                                <span>Total:</span>
+                                <span id="cartTotal">$0.00</span>
+                            </div>
+                            <button class="checkout-btn" onclick="proceedToCheckout()">Checkout</button>
+                            <div class="payment-icons">
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-paypal"></i>
+                                <i class="fa-brands fa-cc-amex"></i>
+                                <i class="fa-brands fa-cc-apple-pay"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- services row -->
+                <div class="services-row">
+                    <div class="service-info">
+                        <div class="service-info-icon"><i class="fa-solid fa-lock"></i></div>
+                        <div>
+                            <h5>Secure payment</h5>
+                            <p>Have you ever finally just</p>
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-info-icon"><i class="fa-regular fa-comment"></i></div>
+                        <div>
+                            <h5>Customer support</h5>
+                            <p>Have you ever finally just</p>
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-info-icon"><i class="fa-solid fa-truck"></i></div>
+                        <div>
+                            <h5>Free delivery</h5>
+                            <p>Have you ever finally just</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- saved for later -->
+                <div class="saved-card">
+                    <h3>Saved for later</h3>
+                    <div class="saved-grid">
+                        <div class="saved-item">
+                            <div class="saved-item-img">
+                                <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=300&h=300&fit=crop" alt="Tablet">
+                            </div>
+                            <div class="saved-price">$99.50</div>
+                            <p class="saved-name">GoPro HERO6 4K Action<br>Camera - Black</p>
+                            <button class="move-cart-btn" onclick="moveToCart(this)">
+                                <i class="fa-solid fa-cart-shopping"></i> Move to cart
+                            </button>
+                        </div>
+                        <div class="saved-item">
+                            <div class="saved-item-img">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop" alt="Phone">
+                            </div>
+                            <div class="saved-price">$99.50</div>
+                            <p class="saved-name">GoPro HERO6 4K Action<br>Camera - Black</p>
+                            <button class="move-cart-btn" onclick="moveToCart(this)">
+                                <i class="fa-solid fa-cart-shopping"></i> Move to cart
+                            </button>
+                        </div>
+                        <div class="saved-item">
+                            <div class="saved-item-img">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300&h=300&fit=crop" alt="Watch">
+                            </div>
+                            <div class="saved-price">$99.50</div>
+                            <p class="saved-name">GoPro HERO6 4K Action<br>Camera - Black</p>
+                            <button class="move-cart-btn" onclick="moveToCart(this)">
+                                <i class="fa-solid fa-cart-shopping"></i> Move to cart
+                            </button>
+                        </div>
+                        <div class="saved-item">
+                            <div class="saved-item-img">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=300&fit=crop" alt="Laptop">
+                            </div>
+                            <div class="saved-price">$99.50</div>
+                            <p class="saved-name">GoPro HERO6 4K Action<br>Camera - Black</p>
+                            <button class="move-cart-btn" onclick="moveToCart(this)">
+                                <i class="fa-solid fa-cart-shopping"></i> Move to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- discount banner -->
+                <div class="discount-banner">
+                    <div>
+                        <h3>Super discount on more than 100 USD</h3>
+                        <p>Have you ever finally just write dummy info</p>
+                    </div>
+                    <button class="shop-now-btn" onclick="showPage('products')">Shop now</button>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- ====================================================
+         CHECKOUT PAGE (Week 3 - Manager flow requirement)
+         ==================================================== -->
+    <div id="checkout-page" class="page">
+        <main class="checkout-main">
+            <div class="container">
+                <div class="checkout-header">
+                    <h1>Checkout</h1>
+                    <p>Please fill in your details to complete the order</p>
+                </div>
+
+                <div class="checkout-layout">
+                    <div>
+                        <div class="checkout-form-card">
+                            <h3><i class="fa-solid fa-user"></i> Contact Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" placeholder="Enter first name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="example@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" placeholder="+92 300 0000000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-form-card">
+                            <h3><i class="fa-solid fa-location-dot"></i> Shipping Address</h3>
+                            <div class="form-group">
+                                <label>Street Address</label>
+                                <input type="text" placeholder="Enter full address">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" placeholder="Faisalabad">
+                                </div>
+                                <div class="form-group">
+                                    <label>Postal Code</label>
+                                    <input type="text" placeholder="38000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select>
+                                    <option>Pakistan</option>
+                                    <option>India</option>
+                                    <option>UAE</option>
+                                    <option>USA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="checkout-form-card">
+                            <h3><i class="fa-solid fa-credit-card"></i> Payment Method</h3>
+                            <div class="payment-options">
+                                <label class="payment-option selected">
+                                    <input type="radio" name="payment" checked>
+                                    <i class="fa-brands fa-cc-visa"></i>
+                                    <span>Credit / Debit Card</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment">
+                                    <i class="fa-brands fa-cc-paypal"></i>
+                                    <span>PayPal</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment">
+                                    <i class="fa-solid fa-money-bill"></i>
+                                    <span>Cash on Delivery</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="summary-card">
+                            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 14px;">Order Summary</h3>
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row discount">
+                                <span>Discount:</span>
+                                <span id="checkoutDiscount">- $0.00</span>
+                            </div>
+                            <div class="summary-row tax">
+                                <span>Tax:</span>
+                                <span id="checkoutTax">+ $0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span>$5.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-total">
+                                <span>Total:</span>
+                                <span id="checkoutTotal">$5.00</span>
+                            </div>
+                            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+                            <div style="text-align: center; margin-top: 12px;">
+                                <a href="#" onclick="showPage('cart'); return false;" style="color: #127FFF; font-size: 13px;">
+                                    <i class="fa-solid fa-arrow-left"></i> Back to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- ====================================================
+         LOGIN PAGE (Week 3 - Manager flow requirement)
+         ==================================================== -->
+    <div id="login-page" class="page">
+        <main class="login-main">
+            <div class="container">
+                <div class="login-box">
+                    <h1>Welcome Back</h1>
+                    <p class="login-subtitle">Sign in to your account to continue shopping</p>
+
+                    <div class="login-tabs">
+                        <div class="login-tab active" onclick="switchLoginTab(this, 'signin')">Sign In</div>
+                        <div class="login-tab" onclick="switchLoginTab(this, 'signup')">Sign Up</div>
+                    </div>
+
+                    <div id="signin-tab">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password">
+                        </div>
+                        <div class="forgot-link">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <button class="login-submit-btn" onclick="doLogin()">Sign In</button>
+                    </div>
+
+                    <div id="signup-tab" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" placeholder="First name">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Create password">
+                        </div>
+                        <button class="login-submit-btn" onclick="doLogin()">Create Account</button>
+                    </div>
+
+                    <div class="login-divider"><span>OR</span></div>
+
+                    <div class="social-login">
+                        <button class="social-btn"><i class="fa-brands fa-google" style="color: #db4437;"></i> Google</button>
+                        <button class="social-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</button>
+                    </div>
+
+                    <p class="signup-prompt">
+                        By signing in, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- ====================================================
+         ABOUT PAGE
+         ==================================================== -->
+    <div id="about-page" class="page">
+        <main class="about-main">
+            <div class="container">
+                <div class="about-hero">
+                    <h1>About Brand</h1>
+                    <p>Your trusted global B2B marketplace connecting buyers and suppliers from over 50 countries worldwide.</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">10K+</div>
+                        <div class="stat-label">Suppliers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">1M+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">500K+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h2>Our Story</h2>
+                    <p>Brand was founded with a simple mission: to make global trade easier and more accessible for businesses of all sizes. From humble beginnings, we've grown into a trusted platform serving thousands of buyers and suppliers worldwide.</p>
+                    <p>We believe that quality products, transparent pricing, and reliable shipping shouldn't be a luxury — they should be the standard. That's why we work hand-in-hand with verified suppliers to bring you the best of what the world has to offer.</p>
+                </div>
+
+                <div class="about-section">
+                    <h2>Our Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                            <h4>Trust & Transparency</h4>
+                            <p>Every supplier is verified and every transaction is secure.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fa-solid fa-globe"></i></div>
+                            <h4>Global Reach</h4>
+                            <p>Connect with suppliers and buyers from over 50 countries.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon"><i class="fa-solid fa-medal"></i></div>
+                            <h4>Quality First</h4>
+                            <p>Premium products with verified quality standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- ====================================================
+         CONTACT PAGE
+         ==================================================== -->
+    <div id="contact-page" class="page">
+        <main class="contact-main">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info-card">
+                        <h2>Get in Touch</h2>
+                        <p>Have questions about our products or services? We'd love to hear from you. Our team is here to help.</p>
+
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h5>Office Address</h5>
+                                    <p>Faisalabad, Punjab, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <h5>Phone</h5>
+                                    <p>+92 300 0000000</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>support@brand.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h5>Working Hours</h5>
+                                    <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-card">
+                        <h2>Send us a Message</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" placeholder="What is this about?">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <button class="login-submit-btn" onclick="sendMessage()">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe on our newsletter</h2>
+            <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+            <div class="newsletter-form">
+                <div class="newsletter-input">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email">
+                </div>
+                <button class="subscribe-btn" onclick="showToast('Subscribed successfully!')">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <span class="logo-text">Brand</span>
+                    </div>
+                    <p class="footer-desc">
+                        Best information about the company gies here but now lorem ipsum is
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showPage('products'); return false;">Find store</a></li>
+                        <li><a href="#" onclick="showPage('products'); return false;">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showPage('products'); return false;">Find store</a></li>
+                        <li><a href="#" onclick="showPage('products'); return false;">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('contact'); return false;">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#" onclick="showPage('contact'); return false;">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('login'); return false;">Login</a></li>
+                        <li><a href="#" onclick="showPage('login'); return false;">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#" onclick="showPage('cart'); return false;">My Orders</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Get app</h4>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <i class="fa-brands fa-apple"></i>
+                            <div>
+                                <span class="small">Download on the</span>
+                                <span class="big">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="app-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div>
+                                <span class="small">GET IT ON</span>
+                                <span class="big">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ecommerce.</p>
+                <div class="language-selector">
+                    <span class="flag">🇺🇸</span>
+                    <span>English</span>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+    <!-- Week 3: Toast notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
+
+    <!-- page switcher script -->
+    <script>
+        // ==================================================
+        // PRODUCT DATABASE (Dynamic Products)
+        // ==================================================
+        const PRODUCTS = {
+            'p1': {
+                id: 'p1', name: 'Canon Camera EOS 2000, Black 10x zoom',
+                price: 998.00, oldPrice: 1128.00, rating: 7.5, reviews: 154,
+                image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
+                description: 'Professional DSLR camera with 10x optical zoom, perfect for photography enthusiasts and professionals. High image quality with advanced autofocus.',
+                type: 'Electronics', material: 'Metal body', design: 'Modern professional',
+                sizes: ['Standard'], inStock: true, sold: 154, supplier: 'Canon Trading LLC'
+            },
+            'p2': {
+                id: 'p2', name: 'GoPro HERO6 4K Action Camera - Black',
+                price: 998.00, oldPrice: null, rating: 7.5, reviews: 154,
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
+                description: 'Action camera with 4K video recording, waterproof design, and image stabilization. Perfect for adventure and sports photography.',
+                type: 'Action Camera', material: 'Plastic + Metal', design: 'Compact rugged',
+                sizes: ['Standard'], inStock: true, sold: 154, supplier: 'GoPro Inc.'
+            },
+            'p3': {
+                id: 'p3', name: 'Smart Watch Series Pro',
+                price: 99.50, oldPrice: 128.00, rating: 8.2, reviews: 89,
+                image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop',
+                description: 'Advanced smartwatch with health tracking, GPS, and long battery life. Stay connected and monitor your fitness.',
+                type: 'Wearable', material: 'Aluminum + Silicone', design: 'Modern sleek',
+                sizes: ['38mm', '42mm', '44mm'], inStock: true, sold: 89, supplier: 'Tech World LLC'
+            },
+            'p4': {
+                id: 'p4', name: 'Wireless Gaming Headphones',
+                price: 79.99, oldPrice: 99.99, rating: 8.5, reviews: 245,
+                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+                description: 'Premium wireless headphones with noise cancellation, 30-hour battery life, and crystal-clear audio.',
+                type: 'Audio', material: 'Plastic + Leather', design: 'Over-ear premium',
+                sizes: ['One Size'], inStock: true, sold: 245, supplier: 'Audio Plus LLC'
+            },
+            'p5': {
+                id: 'p5', name: 'Premium Laptop Pro 15 inch',
+                price: 1299.00, oldPrice: 1499.00, rating: 9.1, reviews: 67,
+                image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop',
+                description: 'High-performance laptop with latest processor, 16GB RAM, 512GB SSD. Perfect for work and gaming.',
+                type: 'Computer', material: 'Aluminum body', design: 'Slim premium',
+                sizes: ['13 inch', '15 inch', '17 inch'], inStock: true, sold: 67, supplier: 'Compute Hub'
+            },
+            'p6': {
+                id: 'p6', name: 'iPhone 12 Pro Max',
+                price: 999.00, oldPrice: 1099.00, rating: 9.0, reviews: 432,
+                image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop',
+                description: 'Latest iPhone with A14 Bionic chip, Pro camera system, and 5G capability.',
+                type: 'Smartphone', material: 'Glass + Steel', design: 'Premium flat-edge',
+                sizes: ['128GB', '256GB', '512GB'], inStock: true, sold: 432, supplier: 'Apple Authorized'
+            },
+            'p7': {
+                id: 'p7', name: 'Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle',
+                price: 78.00, oldPrice: 98.00, rating: 9.3, reviews: 32,
+                image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop',
+                description: 'Premium cotton long sleeve t-shirt with slim muscle fit. Comfortable and breathable for everyday wear.',
+                type: 'Clothing', material: 'Cotton', design: 'Modern slim fit',
+                sizes: ['S', 'M', 'L', 'XL', 'XXL'], inStock: true, sold: 154, supplier: 'Guanjoi Trading LLC'
+            },
+            'p8': {
+                id: 'p8', name: 'Soft Comfort Chair',
+                price: 19.00, oldPrice: null, rating: 7.8, reviews: 56,
+                image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=400&fit=crop',
+                description: 'Comfortable soft chair for living room. Modern design with premium fabric.',
+                type: 'Furniture', material: 'Wood + Fabric', design: 'Modern minimalist',
+                sizes: ['Standard'], inStock: true, sold: 56, supplier: 'Home Decor Co.'
+            },
+            'p9': {
+                id: 'p9', name: 'Kitchen Mixer Pro',
+                price: 100.00, oldPrice: 130.00, rating: 8.4, reviews: 78,
+                image: 'https://images.unsplash.com/photo-1578643463396-0997cb5328c1?w=400&h=400&fit=crop',
+                description: 'Professional kitchen mixer for baking enthusiasts. Multiple speeds and attachments included.',
+                type: 'Kitchen', material: 'Stainless Steel', design: 'Professional grade',
+                sizes: ['5L', '7L'], inStock: true, sold: 78, supplier: 'Kitchen World'
+            },
+            'p10': {
+                id: 'p10', name: 'Coffee Maker Deluxe',
+                price: 10.00, oldPrice: null, rating: 7.6, reviews: 124,
+                image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
+                description: 'Automatic coffee maker with programmable timer. Brew the perfect cup every morning.',
+                type: 'Kitchen', material: 'Plastic + Glass', design: 'Compact modern',
+                sizes: ['Standard'], inStock: true, sold: 124, supplier: 'Cafe Tech'
+            }
+        };
+
+        // ==================================================
+        // CART STATE
+        // ==================================================
+        let cart = [];
+        let currentProduct = PRODUCTS['p7'];
+
+        // ==================================================
+        // PAGE NAVIGATION
+        // ==================================================
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageName + '-page');
+            if (target) target.classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('current'));
+            document.querySelectorAll('[data-nav="' + pageName + '"]').forEach(n => n.classList.add('current'));
+            if (pageName === 'cart') renderCart();
+            window.scrollTo(0, 0);
+        }
+
+        // ==================================================
+        // DYNAMIC PRODUCT DETAIL
+        // ==================================================
+        function openProductDetail(productId) {
+            const product = PRODUCTS[productId];
+            if (!product) {
+                showToast('Product not found');
+                return;
+            }
+            currentProduct = product;
+            renderProductDetail(product);
+            showPage('detail');
+        }
+
+        function renderProductDetail(product) {
+            const mainImg = document.getElementById('mainProductImg');
+            if (mainImg) mainImg.src = product.image;
+
+            const title = document.getElementById('detailTitle');
+            if (title) title.textContent = product.name;
+
+            const rating = document.getElementById('detailRating');
+            if (rating) rating.textContent = product.rating;
+
+            const reviews = document.getElementById('detailReviewCount');
+            if (reviews) reviews.textContent = '• ' + product.reviews + ' reviews';
+
+            const sold = document.getElementById('detailSold');
+            if (sold) sold.textContent = product.sold;
+
+            const price1 = document.getElementById('detailPrice');
+            const price2 = document.getElementById('detailPrice2');
+            const price3 = document.getElementById('detailPrice3');
+            if (price1) price1.textContent = '$' + product.price.toFixed(2);
+            if (price2) price2.textContent = '$' + (product.price * 0.92).toFixed(2);
+            if (price3) price3.textContent = '$' + (product.price * 0.80).toFixed(2);
+
+            // Optional fields - safely set if exist
+            const typeEl = document.getElementById('productType');
+            if (typeEl) typeEl.textContent = product.type || 'General';
+            const matEl = document.getElementById('productMaterial');
+            if (matEl) matEl.textContent = product.material || 'Standard';
+            const desEl = document.getElementById('productDesign');
+            if (desEl) desEl.textContent = product.design || 'Modern';
+
+            // Size dropdown - use product sizes or default
+            const sizeSelect = document.getElementById('sizeSelect');
+            if (sizeSelect) {
+                const sizes = product.sizes || ['S', 'M', 'L', 'XL', 'XXL'];
+                sizeSelect.innerHTML = '';
+                sizes.forEach((s, i) => {
+                    const opt = document.createElement('option');
+                    opt.value = s;
+                    opt.textContent = s;
+                    if (i === 1 || (sizes.length === 1 && i === 0)) opt.selected = true;
+                    sizeSelect.appendChild(opt);
+                });
+            }
+
+            const supEl = document.getElementById('supplierName');
+            if (supEl) supEl.textContent = product.supplier || 'Guanjoi Trading LLC';
+
+            const descEl = document.getElementById('productDescription');
+            if (descEl) descEl.textContent = product.description;
+
+            const qtyInput = document.getElementById('qtyInput');
+            if (qtyInput) qtyInput.value = 1;
+        }
+
+        // ==================================================
+        // CATEGORY FILTER
+        // ==================================================
+        function filterCategory(category) {
+            showPage('products');
+            const title = document.getElementById('categoryTitle');
+            if (title) title.textContent = category;
+            const breadcrumb = document.getElementById('breadcrumbCategory');
+            if (breadcrumb) breadcrumb.textContent = category;
+            showToast('Showing: ' + category);
+        }
+
+        function setView(view, btn) {
+            const container = document.querySelector('.products-content');
+            container.classList.remove('grid-view', 'list-view');
+            container.classList.add(view + '-view');
+            btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function changeQty(delta) {
+            const input = document.getElementById('qtyInput');
+            let val = parseInt(input.value) || 1;
+            val = val + delta;
+            if (val < 1) val = 1;
+            if (val > 99) val = 99;
+            input.value = val;
+        }
+
+        // ==================================================
+        // ADD TO CART (Dynamic)
+        // ==================================================
+        function addToCart() {
+            const qty = parseInt(document.getElementById('qtyInput').value) || 1;
+            const sizeSel = document.getElementById('sizeSelect');
+            const size = sizeSel ? sizeSel.value : 'Standard';
+
+            const existing = cart.find(c => c.id === currentProduct.id && c.size === size);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    image: currentProduct.image,
+                    supplier: currentProduct.supplier,
+                    size: size,
+                    qty: qty
+                });
+            }
+
+            updateCartBadge();
+            showToast('Added to cart: ' + currentProduct.name);
+
+            setTimeout(() => {
+                if (confirm('Item added to cart! Go to cart now?')) {
+                    showPage('cart');
+                }
+            }, 600);
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            if (badge) {
+                const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // ==================================================
+        // RENDER CART (Dynamic)
+        // ==================================================
+        function renderCart() {
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMsg = document.getElementById('emptyCartMessage');
+            const bottomRow = document.getElementById('cartBottomRow');
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = '';
+                if (emptyMsg) emptyMsg.style.display = 'block';
+                if (bottomRow) bottomRow.style.display = 'none';
+                updateCartTotals();
+                updateCartItemCount();
+                return;
+            }
+
+            if (emptyMsg) emptyMsg.style.display = 'none';
+            if (bottomRow) bottomRow.style.display = 'flex';
+
+            container.innerHTML = cart.map((item, index) => {
+                const qtyOptions = [1,2,3,4,5,6,7,8,9,10].map(n =>
+                    '<option value="' + n + '"' + (n === item.qty ? ' selected' : '') + '>Qty: ' + n + '</option>'
+                ).join('');
+
+                return '<div class="cart-item" data-index="' + index + '">' +
+                    '<div class="cart-item-img"><img src="' + item.image + '" alt="' + item.name + '"></div>' +
+                    '<div class="cart-item-info">' +
+                        '<h4>' + item.name + '</h4>' +
+                        '<p class="cart-item-meta">Size: ' + item.size + '</p>' +
+                        '<p class="cart-item-seller">Seller: ' + (item.supplier || 'Brand Store') + '</p>' +
+                        '<div class="cart-item-actions">' +
+                            '<button class="remove-btn" onclick="removeFromCart(' + index + ')">Remove</button>' +
+                            '<button class="save-btn">Save for later</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="cart-item-right">' +
+                        '<span class="cart-item-price">$' + (item.price * item.qty).toFixed(2) + '</span>' +
+                        '<select class="cart-qty-select" onchange="updateCartQty(' + index + ', this.value)">' + qtyOptions + '</select>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            updateCartTotals();
+            updateCartItemCount();
+        }
+
+        function removeFromCart(index) {
+            const itemName = cart[index].name;
+            cart.splice(index, 1);
+            renderCart();
+            updateCartBadge();
+            showToast('Removed: ' + itemName);
+        }
+
+        function updateCartQty(index, newQty) {
+            cart[index].qty = parseInt(newQty);
+            renderCart();
+            updateCartBadge();
+        }
+
+        function updateCartTotals() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const discount = subtotal > 100 ? 60 : 0;
+            const tax = subtotal * 0.01;
+            const total = subtotal - discount + tax;
+
+            const setText = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = '$' + val.toFixed(2);
+            };
+
+            setText('cartSubtotal', subtotal);
+            setText('cartTax', tax);
+            setText('cartTotal', total);
+            const disEl = document.getElementById('cartDiscount');
+            if (disEl) disEl.textContent = '- $' + discount.toFixed(2);
+        }
+
+        function updateCartItemCount() {
+            const counter = document.getElementById('cartItemCount');
+            if (counter) counter.textContent = cart.length;
+        }
+
+        function moveToCart(btn) {
+            const savedItem = {
+                id: 'saved_' + Date.now(),
+                name: 'GoPro HERO6 4K Action Camera - Black',
+                price: 99.50,
+                image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=300&h=300&fit=crop',
+                supplier: 'Saved Seller',
+                size: 'Standard',
+                qty: 1
+            };
+            cart.push(savedItem);
+            updateCartBadge();
+            showToast('Moved to cart!');
+            if (btn) {
+                const item = btn.closest('.saved-item');
+                if (item) item.style.opacity = '0.5';
+            }
+        }
+
+        function backToShop() {
+            showPage('products');
+        }
+
+        function removeAllFromCart() {
+            if (cart.length === 0) {
+                showToast('Cart is already empty');
+                return;
+            }
+            if (confirm('Remove all items from cart?')) {
+                cart = [];
+                renderCart();
+                updateCartBadge();
+                showToast('Cart cleared');
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            updateCheckoutSummary();
+            showPage('checkout');
+        }
+
+        function updateCheckoutSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const discount = subtotal > 100 ? 60 : 0;
+            const tax = subtotal * 0.01;
+            const shipping = subtotal > 0 ? 5 : 0;
+            const total = subtotal - discount + tax + shipping;
+
+            const setText = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = '$' + val.toFixed(2);
+            };
+
+            setText('checkSubtotal', subtotal);
+            setText('checkTax', tax);
+            setText('checkTotal', total);
+            const disEl = document.getElementById('checkDiscount');
+            if (disEl) disEl.textContent = '- $' + discount.toFixed(2);
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            showToast('Order placed successfully!');
+            setTimeout(() => {
+                cart = [];
+                updateCartBadge();
+                showPage('home');
+            }, 1500);
+        }
+
+        function switchLoginTab(tab, type) {
+            document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('signin-tab').style.display = type === 'signin' ? 'block' : 'none';
+            document.getElementById('signup-tab').style.display = type === 'signup' ? 'block' : 'none';
+        }
+
+        function doLogin() {
+            showToast('Login successful! Welcome back.');
+            setTimeout(() => showPage('home'), 1200);
+        }
+
+        function sendMessage() {
+            showToast('Message sent! We will get back to you soon.');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toastMessage');
+            if (msg) msg.textContent = message;
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+        }
+
+        // ==================================================
+        // INIT
+        // ==================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartBadge();
+            document.querySelectorAll('[data-nav="home"]').forEach(n => n.classList.add('current'));
+
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImg = document.getElementById('mainProductImg');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    if (mainImg) {
+                        const newSrc = this.querySelector('img').src.replace('w=120&h=120', 'w=400&h=400');
+                        mainImg.src = newSrc;
+                    }
+                });
+            });
+
+            const tabs = document.querySelectorAll('.tab-item');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const descTab = document.getElementById('tab-description');
+                    if (descTab) descTab.classList.add('hidden');
+                    document.querySelectorAll('.reviews-content').forEach(c => c.classList.remove('active'));
+                    const tabId = this.getAttribute('data-tab');
+                    if (tabId === 'description') {
+                        if (descTab) descTab.classList.remove('hidden');
+                    } else {
+                        const target = document.getElementById('tab-' + tabId);
+                        if (target) target.classList.add('active');
+                    }
+                });
+            });
+
+            const searchInput = document.getElementById('searchInput');
+            const searchSuggestions = document.getElementById('searchSuggestions');
+            if (searchInput && searchSuggestions) {
+                searchInput.addEventListener('focus', () => searchSuggestions.classList.add('show'));
+                searchInput.addEventListener('blur', () => setTimeout(() => searchSuggestions.classList.remove('show'), 200));
+                searchInput.addEventListener('input', function() {
+                    if (this.value.length >= 1) searchSuggestions.classList.add('show');
+                });
+                document.querySelectorAll('.search-suggestion').forEach(s => {
+                    s.addEventListener('click', function() {
+                        searchInput.value = this.textContent.trim();
+                        searchSuggestions.classList.remove('show');
+                        showPage('products');
+                    });
+                });
+            }
+
+            const couponBtn = document.querySelector('.coupon-apply-btn');
+            if (couponBtn) {
+                couponBtn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    if (input.value.trim()) {
+                        showToast('Coupon applied: ' + input.value);
+                        input.value = '';
+                    } else {
+                        showToast('Please enter a coupon code');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.addEventListener('click', function() {
+                    document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            renderCart();
+        });
+    </script>
+
+</body>
+</html>
